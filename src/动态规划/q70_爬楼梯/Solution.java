@@ -5,7 +5,7 @@ package 动态规划.q70_爬楼梯;
  */
 public class Solution {
 
-    public int climbStairs(int n) {
+    public static int climbStairs(int n) {
         if (n == 1) {
             return 1;
         }
@@ -17,4 +17,30 @@ public class Solution {
         }
         return dp[n];
     }
+
+    public static void main(String[] args) {
+        System.out.println(cp(10));
+    }
+
+    public static int cp(int n){
+        if(n<3)
+            return n;
+        int a=1,b=2;
+        for(int i=3;i<=n;i++){
+            int t=a+b;
+            a=b;
+            b=t;
+        }
+        return b;
+    }
+
+
+    public static int dg(int n){
+        if(n<3)
+            return n;
+        return dg(n-1)+dg(n-2);
+    }
+
+
+
 }
