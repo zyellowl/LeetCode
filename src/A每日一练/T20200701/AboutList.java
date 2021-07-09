@@ -48,11 +48,13 @@ public class AboutList {
         return pre.next;
     }
     public static ListNode zhaojiaodian(ListNode l1,ListNode l2){
-        while (l1!=l2){
-                l1=l1==null?l2:l1.next;
-                l2=l2==null?l1:l2.next;
+        ListNode pa=l1;
+        ListNode pb=l2;
+        while (pa!=pb){
+            pa=pa==null?l2:pa.next;
+            pb=pb==null?l1:pb.next;
         }
-        return l1;
+        return pa;
     }
     public static boolean shifouyouhuan(ListNode listNode){
         ListNode slow=listNode;
