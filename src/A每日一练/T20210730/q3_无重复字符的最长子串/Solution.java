@@ -50,8 +50,29 @@ public class Solution {
     }
 
 
+    public static int t(String s){
+        int n=s.length();
+        Set<Character> set=new HashSet<>();
+        int r=-1,ans=0;
+        for(int i=0;i<n;i++){
+            if(i!=0){
+                set.remove(s.charAt(i-1));
+            }
+            while (r+1<n&&!set.contains(s.charAt(r+1))){
+                set.add(s.charAt(r+1));
+                r++;
+            }
+            /**
+             * error
+             * ans=Math.max(ans,r-1);
+             */
+            ans=Math.max(ans,r+1-i);
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
         String s="abcabcbb";
-        System.out.println(lengthOfLongestSubstring1(s));
+        System.out.println(t(s));
     }
 }
